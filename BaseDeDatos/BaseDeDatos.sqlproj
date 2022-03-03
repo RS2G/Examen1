@@ -56,5 +56,15 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\StoreProcedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Parametro.sql" />
+    <Build Include="dbo\StoreProcedures\ParametroActualizar.sql" />
+    <Build Include="dbo\StoreProcedures\ParametroEliminar.sql" />
+    <Build Include="dbo\StoreProcedures\ParametroInsertar.sql" />
+    <Build Include="dbo\StoreProcedures\ParametroObtener.sql" />
   </ItemGroup>
 </Project>

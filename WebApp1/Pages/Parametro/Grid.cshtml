@@ -1,0 +1,61 @@
+﻿@page
+@model WebApp1.Pages.Parametro.GridModel
+@{
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            Parámetros
+        </div>
+        <div class="card-body">
+
+            <a class="btn btn-secondary" asp-page="Edit"><i class="btn btn-secondary"></i></a>
+            <div class="row">
+                <div class="col-12">
+                    <table id="GridView" class="table table-bordered table table-striped table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Código</th>
+                                <th>Descripción</th>
+                                <th>Valor</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.GridList)
+                            {
+                                <tr>
+                                    <td>@item.Id_Parametro</td>
+                                    <td>@item.Codigo</td>
+                                    <td>@item.Descripcion</td>
+                                    <td>@item.Valor</td>
+                                    <td>@item.Estado</td>
+                                    <td>
+                                        <a class="" btn btn-secondary" asp-page="Edit" asp-route-id="@item.Id_Parametro"><i class='bx bx-edit'></i></a>
+                                        <button type="button" class="btn btn-secondary" onclick="ParametroGrid.OnClickEliminar(@item.Id_Parametro)"><i class='bx bx-trash'></i></button>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script>
+        var MensajeApp = "@Html.Raw(Model.Mensaje)";
+    </script>
+
+    <script defer src="~/App/Parametro/Grid.js"></script>
+}
